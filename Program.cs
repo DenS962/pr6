@@ -4,43 +4,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _09999
+namespace PR_6_2
 {
     internal class Program
     {
-        static void tabl (int numb)
+        static bool dilennya (int numb1, int numb2)
         {
-            int b = 1;
-            if (numb < 0)
+
+            if (numb1 % numb2 == 0)
             {
-                Console.WriteLine("Треба додатні цілі числа");
-                return;
+                return true;
             }
-            if(numb ==0)
+            else
             {
-                for (numb=1; numb <= 9; numb++)
-                {
-                    for (b=1; b <= 9; b++) 
-                    {
-                        Console.WriteLine($"{numb} *{b} = {numb * b}");
-                    }
-                }
+                return false;
             }
-            for(;b<=9; b++)
-            Console.WriteLine($"{numb} *{b} = {numb *b}");
+        }
+        static void dilennya ()
+        {
+            Console.WriteLine("Введіть числа, які ви хочете перевірити на ділення з остачею");
+            int a = 0, b = 0;
+            a = int.Parse(Console.ReadLine());
+            b = int.Parse(Console.ReadLine());
+            if (a % b == 0)
+            {
+                Console.WriteLine("Кратне");
+            }
+            else
+            {
+                Console.WriteLine("Не кратне");
+            }
         }
         static void Main(string[] args)
         {
             try
             {
-                Console.WriteLine("Введіть яку табличку множення ви хочете вивести");
-                int t = int.Parse(Console.ReadLine());
-                Console.WriteLine("Таблиця множення на {t}");
-                tabl(t);
+                Console.WriteLine("Введіть числа, які ви хочете перевірити на ділення з остачею");
+                int a = 0, b = 0;
+                a = int.Parse(Console.ReadLine());
+                b = int.Parse(Console.ReadLine());
+
+                if (dilennya(a, b) == true)
+                {
+                    Console.WriteLine("Кратне");
+                }
+                else
+                {
+                    Console.WriteLine("Не кратне");
+                }
+
+                dilennya();
+
             }
-            catch(Exception m)
+            catch (Exception ex)
             {
-                Console.WriteLine(m.Message);
+                Console.WriteLine(ex.Message);
             }
         }
     }
